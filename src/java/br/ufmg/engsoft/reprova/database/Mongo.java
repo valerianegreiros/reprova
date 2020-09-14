@@ -4,6 +4,8 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoCollection;
 
+import java.util.Objects;
+
 import org.bson.Document;
 
 import org.slf4j.Logger;
@@ -22,7 +24,7 @@ public class Mongo {
   /**
    * Full connection string, obtained from 'REPROVA_MONGO' environment variable.
    */
-  protected static final String endpoint = System.getenv("REPROVA_MONGO");
+  protected static final String endpoint = Objects.requireNonNullElse(System.getenv("REPROVA_MONGO"), "mongodb://127.0.0.1:27017/?connectTimeoutMS=5000");
 
   /**
    * The mongodb driver instance.

@@ -1,3 +1,5 @@
+let question_path = "/question/"
+
 function mean(arr) {
   if (arr.length == 0)
     return 0;
@@ -192,7 +194,7 @@ async function removeQuestion(id) {
 }
 
 function editQuestion(id) {
-  let location = '/question.html?id=' + id;
+  let location = question_path + '?id=' + id;
 
   if (token)
     location += '&token=' + token;
@@ -240,7 +242,7 @@ $(document).ready(
     if (token)
       $('#new-question').click(
         () => {
-          let location = '/question.html';
+          let location = question_path;
 
           if (token)
             location += '?token=' + token;
